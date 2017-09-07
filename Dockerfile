@@ -6,4 +6,4 @@ RUN apt-get install nginx
 
 EXPOSE 80
 
-CMD /etc/init.d/nginx
+CMD /etc/init.d/nginx start
