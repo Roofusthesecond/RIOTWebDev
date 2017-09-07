@@ -6,4 +6,5 @@ RUN apt-get install nginx
 
 EXPOSE 80
 
-CMD /usr/local/nginx/sbin/nginx start
+#CMD /etc/init.d/nginx start
+CMD /usr/sbin/nginx -g "daemon off;"
