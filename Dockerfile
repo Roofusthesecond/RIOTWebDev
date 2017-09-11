@@ -4,6 +4,7 @@ RUN apt-get update
 
 RUN apt-get install nginx
 
+ADD ./ /var/www/html
 RUN ls /var/www/html
 
 EXPOSE 80
