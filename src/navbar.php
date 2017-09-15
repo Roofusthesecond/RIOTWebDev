@@ -21,7 +21,7 @@
 						<a href="/tools">Tools</a>
 					</li>
        					<li>
-						<a href="/chat">Chat</a>
+						<a href="/chat">Anal Fisting</a>
 					</li>
 					<li>
 						<a href="https://music.nanopi.ml/">Music</a>
