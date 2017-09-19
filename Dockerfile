@@ -7,6 +7,7 @@ RUN apt-get install nginx php5-fpm
 ADD ./src /var/www/html
 RUN ls /var/www/html
 
+ADD ./nginx.conf /etc/nginx/sites-enabled/default
 RUN cat /etc/nginx/sites-enabled/default
 
 EXPOSE 80
