@@ -2,7 +2,7 @@
   
   <a class="navbar-brand" href="#">Navbar</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active" id="Home">
         <a class="nav-link" href="#">Home <span class="sr-only"></a>
