@@ -13,6 +13,6 @@ RUN cat /etc/nginx/sites-enabled/default
 EXPOSE 80
 
 #CMD /etc/init.d/nginx start
-CMD /usr/local/sbin/php-fpm;/usr/sbin/nginx -g "daemon off;"
+CMD /usr/sbin/php5-fpm;/usr/sbin/nginx -g "daemon off;"
 
 
