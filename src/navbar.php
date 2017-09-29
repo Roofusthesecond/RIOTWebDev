@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+</style>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 	<a class="navbar-brand" href="/">RIOT</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,4 +43,5 @@
 		</ul>
 	</div>
 </nav>
-
+</body>
+</html>
