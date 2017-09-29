@@ -10,7 +10,6 @@
   </head>
   <body>
     <?php include'../navbar.php';
-    echo 'Hello World';
     ?>
 
 
