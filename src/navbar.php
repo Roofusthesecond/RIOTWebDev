@@ -6,9 +6,18 @@
 	
 	<div class="collapse navbar-collapse" id="nav-content">   
 		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="/groups">Groups</a>
-			</li>
+			<div class="dropdown">
+  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   					 Groups
+ 			    </button>
+ 			 	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <a class="dropdown-item" href="#">Web Development</a>
+				    <a class="dropdown-item" href="#">Robotics</a>
+				    <a class="dropdown-item" href="#">Cyber Security</a>
+				    <a class="dropdown-item" href="#">Programming</a>
+				    <a class="dropdown-item" href="#">Management and Development</a>
+  				</div>
+			</div>
 			<li class="nav-item">
 				<a class="nav-link" href="/about">About</a>
 			</li>
