@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
+
+
+
 <style type="text/css">
 .dropdown:hover>.dropdown-menu {
   display: block;
 }
 </style>
-<script type="text/javascript">
-	
-</script>
-</head>
-<body>
+
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 	<a class="navbar-brand" href="/">RIOT</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +21,11 @@
    					 Groups
  			    </button>
  			 	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" href="#">Web Development</a>
-				    <a class="dropdown-item" href="#">Robotics</a>
-				    <a class="dropdown-item" href="#">Cyber Security</a>
-				    <a class="dropdown-item" href="#">Programming</a>
-				    <a class="dropdown-item" href="#">Management and Development</a>
+				    <a class="dropdown-item" href="/groups/index.php#weeb-dev">Web Development</a>
+				    <a class="dropdown-item" href="/groups/index.php#Robotics">Robotics</a>
+				    <a class="dropdown-item" href="/groups/index.php#Cyber-Sec">Cyber Security</a>
+				    <a class="dropdown-item" href="/groups/index.php#Programming">Programming</a>
+				    <a class="dropdown-item" href="/groups/index.php#M-D">Management and Development</a>
   				</div>
 			</div>
 			<li class="nav-item">
@@ -43,5 +40,3 @@
 		</ul>
 	</div>
 </nav>
-</body>
-</html>
