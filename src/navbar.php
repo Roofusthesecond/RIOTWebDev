@@ -18,11 +18,11 @@
    					 Groups
  			    	</a>
  			 	<div class="dropdown-menu">
-				    <a class="dropdown-item" href="/groups/index.php#weeb-dev">Web Development</a>
+				    <a class="dropdown-item" href="/groups/index.php#Web-Development">Web Development</a>
 				    <a class="dropdown-item" href="/groups/index.php#Robotics">Robotics</a>
-				    <a class="dropdown-item" href="/groups/index.php#Cyber-Sec">Cyber Security</a>
+				    <a class="dropdown-item" href="/groups/index.php#Cyber-Security">Cyber Security</a>
 				    <a class="dropdown-item" href="/groups/index.php#Programming">Programming</a>
-				    <a class="dropdown-item" href="/groups/index.php#M-D">Management and Development</a>
+				    <a class="dropdown-item" href="/groups/index.php#Management-and-Development">Management and Development</a>
   				</div>
 			</div>
 			<li class="nav-item">
