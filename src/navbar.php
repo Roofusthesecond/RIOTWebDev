@@ -3,6 +3,15 @@
   		display: block;
 	}
 </style>-->
+<?php 
+	$url = $_SERVER['REQUEST_URI'];
+	
+	function setnavactive($base, $testurl){
+		if($base == $testurl || $base == $testurl . "/"){
+			echo "active";
+		}
+	}
+?>
 <style>
 	.dropdown-item{
 		font-weight: 300;
@@ -22,7 +31,7 @@
 	<div class="collapse navbar-collapse" id="nav-content">   
 		<ul class="navbar-nav">
 			<div class="dropdown">
-  				<a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+  				<a class="nav-link dropdown-toggle <?php setnavactive($url, "/groups"); ?>" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
    					 Groups
  			    	</a>
  			 	<div class="dropdown-menu">
@@ -33,13 +42,13 @@
 				    <a class="dropdown-item" href="/groups/#Management-and-Development">Management and Development</a>
   				</div>
 			</div>
-			<li class="nav-item">
+			<li class="nav-item <?php setnavactive($url, "/about"); ?>">
 				<a class="nav-link" href="/about">About</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php setnavactive($url, "/donations"); ?>">
 				<a class="nav-link" href="/donations">Donations</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php setnavactive($url, "/contracts"); ?>">
 				<a class="nav-link" href="/contracts">Contracts</a>
 			</li>
 		</ul>
