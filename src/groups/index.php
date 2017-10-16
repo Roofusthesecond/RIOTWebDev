@@ -11,7 +11,13 @@
 				border: 2px solid #666;	
 				border-radius: 10px;
 				height: 500px;
-			}
+			} 
+			.groups {
+				height: 100%;
+				width: 100%;
+			} 
+			
+
 		</style>
   	</head>
   		<body>
@@ -19,29 +25,29 @@
     			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12 group-div" id="Web-Development">
-								<div id="trello-web-dev" style="height: 100%; width: 100%;">
-									<iframe frameborder="0" src="https://trello.com/b/IQOthQcV.html" style="width: 100%; height: 100%;"></iframe>
+								<div id="trello-web-dev"  class="trello-groups">
+									<iframe frameborder="0" src="https://trello.com/b/IQOthQcV.html"></iframe>
 								</div>
 					</div>
 					<div class="col-md-12 group-div" id="Robotics">
-								<div id="trello-robotics" style="height: 100%; width: 100%;">
-									<iframe frameborder="0" src="" style="width: 100%; height: 100%;"></iframe>
+								<div id="trello-robotics"  class="trello-groups">
+									<iframe frameborder="0" src="" class="trello-groups"></iframe>
 								</div>
 					</div>
-					<div class="col-md-12 group-div" id="Cyber-Security">
-								<div id="trello-cyber-security" style="height: 100%; width: 100%;">
-									<iframe frameborder="0" src="https://trello.com/b/LcnXMWCh.html" style="width: 100%; height: 100%;"></iframe>
+					<div class="col-md-12 group-div" id="Cyber-Security" class="trello-groups">
+								<div id="trello-cyber-security" >
+									<iframe frameborder="0" src="https://trello.com/b/LcnXMWCh.html" class="trello-groups"></iframe>
 								</div>
 					</div>
-					<div class="col-md-12 group-div" id="Programming">
-								<div id="trello-programming" style="height: 100%; width: 100%;">
-									<iframe frameborder="0" src="https://trello.com/b/ImYQevYh.html" style="width: 100%; height: 100%;"></iframe>
+					<div class="col-md-12 group-div" id="Programming" class="trello-groups">
+								<div id="trello-programming" >
+									<iframe frameborder="0" src="https://trello.com/b/ImYQevYh.html" class="trello-groups"></iframe>
 								</div>
 					</div>
 					<div class="col-md-12"></div>
-					<div class="col-md-12 group-div" id="Management-and-Development">
-								<div id="trello-management-and-development" style="height: 100%; width: 100%;">
-									<iframe frameborder="0" src="https://trello.com/b/dw5jotPC.html" style="width: 100%; height: 100%;"></iframe>
+					<div class="col-md-12 group-div" id="Management-and-Development" class="trello-groups">
+								<div id="trello-management-and-development" >
+									<iframe frameborder="0" src="https://trello.com/b/dw5jotPC.html" class="trello-groups"></iframe>
 								</div>
 				    </div>
 				</div>
