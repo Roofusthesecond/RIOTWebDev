@@ -16,6 +16,7 @@
 				height: 100%;
 				width: 100%;
 			} 
+
 			
 
 		</style>
@@ -24,32 +25,36 @@
     			<?php include'../navbar.php'; ?>
     			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-12 group-div" id="Web-Development">
+						<div id="Web-Development" class="col-md-12 group-div inside-div-trello">
 								<div id="trello-web-dev"  class="trello-groups">
 									<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/IQOthQcV.html"></iframe>
 								</div>
-					</div>
-					<div class="col-md-12 group-div" id="Robotics">
+						</div>
+
+						<div id="Robotics" class="col-md-12 group-div inside-div-trello">
 								<div id="trello-robotics"  class="trello-groups">
 									<iframe frameborder="0" src="" class="trello-groups"></iframe>
 								</div>
-					</div>
-					<div class="col-md-12 group-div" id="Cyber-Security" class="trello-groups">
+						</div>
+					
+						<div id="Cyber-Security" class="col-md-12 group-div" class="trello-groups inside-div-trello">
 								<div id="trello-cyber-security" >
 									<iframe frameborder="0" src="https://trello.com/b/LcnXMWCh.html" class="trello-groups"></iframe>
 								</div>
-					</div>
-					<div class="col-md-12 group-div" id="Programming" class="trello-groups">
+						</div>
+					
+						<div id="Programming" class="col-md-12 group-div" class="trello-groups inside-div-trello">
 								<div id="trello-programming" >
 									<iframe frameborder="0" src="https://trello.com/b/ImYQevYh.html" class="trello-groups"></iframe>
 								</div>
-					</div>
-					<div class="col-md-12"></div>
-					<div class="col-md-12 group-div" id="Management-and-Development" class="trello-groups">
+						</div>
+				
+						<div id="Management-and-Development" class="col-md-12 group-div" class="trello-groups inside-div-trello">
 								<div id="trello-management-and-development" >
 									<iframe frameborder="0" src="https://trello.com/b/dw5jotPC.html" class="trello-groups"></iframe>
 								</div>
-				    </div>
+				    	</div>
+				    
 				</div>
 			</div>
 
