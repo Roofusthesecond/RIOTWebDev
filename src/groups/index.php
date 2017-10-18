@@ -12,7 +12,7 @@
 				border-radius: 10px;
 				height: 500px;
 			} 
-			.groups {
+			.trello-groups {
 				height: 100%;
 				width: 100%;
 			} 
@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="col-md-12 group-div" id="Web-Development">
 								<div id="trello-web-dev"  class="trello-groups">
-									<iframe frameborder="0" src="https://trello.com/b/IQOthQcV.html"></iframe>
+									<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/IQOthQcV.html"></iframe>
 								</div>
 					</div>
 					<div class="col-md-12 group-div" id="Robotics">
