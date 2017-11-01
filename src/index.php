@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-  
-  
     		<title>RIOT</title>
     		<meta charset="utf-8">
     		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,16 +9,34 @@
   	</head>
   	<body>
    		<?php include'navbar.php';?>
+		<!--<h1 style="position: absolute; top: 10%;">RIOT</h1>-->
 		<div id="carouselControls" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
    		 		<div class="carousel-item active">
       				<img class="d-block w-100" src="/images/nicholascupcage.jpg" alt="First slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>CUPCAGE</h3>
+						<p>Life After Death</p>
+					</div>
     			</div>
     			<div class="carousel-item">
       				<img class="d-block w-100" src="/images/lifeafterdeath.png" alt="Second slide">
-    			</div>
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Destruction of a Man</h3>
+						<p>Through the EONS of TIME and SPACE</p>
+					</div>
+				</div>
 				<div class="carousel-item">
       				<img class="d-block w-100" src="/images/picklecage.jpg" alt="Third slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>To Be Fair...</h3>
+						<p>You have to have a very high IQ to understand Picolas Cage </p>
+					</div>
     			</div>
   			</div>
 			<a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
