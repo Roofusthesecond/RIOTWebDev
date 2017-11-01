@@ -39,19 +39,19 @@
 						</div>
 					
 						<div id="Cyber-Security" class="col-md-12 group-div" class="trello-groups inside-div-trello">
-								<div id="trello-cyber-security" >
+								<div id="trello-cyber-security" class="trello-groups">
 									<iframe frameborder="0" src="https://trello.com/b/LcnXMWCh.html" class="trello-groups"></iframe>
 								</div>
 						</div>
 					
 						<div id="Programming" class="col-md-12 group-div" class="trello-groups inside-div-trello">
-								<div id="trello-programming" >
+								<div id="trello-programming" class="trello-groups">
 									<iframe frameborder="0" src="https://trello.com/b/ImYQevYh.html" class="trello-groups"></iframe>
 								</div>
 						</div>
 				
 						<div id="Management-and-Development" class="col-md-12 group-div" class="trello-groups inside-div-trello">
-								<div id="trello-management-and-development" >
+								<div id="trello-management-and-development" class="trello-groups">
 									<iframe frameborder="0" src="https://trello.com/b/dw5jotPC.html" class="trello-groups"></iframe>
 								</div>
 				    	</div>

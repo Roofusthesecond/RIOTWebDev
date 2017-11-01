@@ -11,6 +11,27 @@
   	</head>
   	<body>
    		<?php include'navbar.php';?>
+		<div id="carouselControls" class="carousel slide" data-ride="carousel">
+  			<div class="carousel-inner">
+   		 		<div class="carousel-item active">
+      				<img class="d-block w-100" src="/images/nicholascupcage.jpg" alt="First slide">
+    			</div>
+    			<div class="carousel-item">
+      				<img class="d-block w-100" src="/images/lifeafterdeath.png" alt="Second slide">
+    			</div>
+				<div class="carousel-item">
+      				<img class="d-block w-100" src="/images/picklecage.jpg" alt="Third slide">
+    			</div>
+  			</div>
+			<a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
 
     		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
