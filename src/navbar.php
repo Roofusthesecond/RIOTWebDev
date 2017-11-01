@@ -37,9 +37,9 @@
  			 	<div class="dropdown-menu">
 				    <a class="dropdown-item" href="/groups/#Web-Development">Web Development</a>
 				    <a class="dropdown-item" href="/groups/#Robotics">Robotics</a>
-				    <a class="dropdown-item" href="/groups/#Cyber-Security">Cyber Security</a>
-				    <a class="dropdown-item" href="/groups/#Programming">Programming</a>
 				    <a class="dropdown-item" href="/groups/#Management-and-Development">Management and Development</a>
+				    <a class="dropdown-item" href="/groups/#Programming">Programming</a>
+				    <a class="dropdown-item" href="/groups/#Cyber-Security">Cyber Security</a>
   				</div>
 			</div>
 			<li class="nav-item <?php setnavactive($url, "/about"); ?>">
