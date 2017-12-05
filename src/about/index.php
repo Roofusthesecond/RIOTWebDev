@@ -11,7 +11,7 @@
     		<?php include'../navbar.php'; ?>
 		<div class="container text-center" style="padding: 80px; 40px;">
 			<h3 style="font-weight:300;">About RIOT</h3>
-			<p style="padding: 20px; 0px;" class="lead">
+			<p style="padding: 20px 0px;" class="lead">
 				RIOT stands for Rocklin Institute of Technology. RIOT is a high school technology class where students get to have firsthand experiences dealing with computers. The source for this website can be found 
 				<em>
 					<a href="https://github.com/JustinRisney/RIOTWebDev" target="_blank">here</a>
