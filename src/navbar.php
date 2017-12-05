@@ -35,11 +35,11 @@
    					 Groups
  			    	</a>
  			 	<div class="dropdown-menu">
-				    <a class="dropdown-item" href="/groups/#Web-Development">Web Development</a>
-				    <a class="dropdown-item" href="/groups/#Robotics">Robotics</a>
-				    <a class="dropdown-item" href="/groups/#Management-and-Development">Management and Development</a>
-				    <a class="dropdown-item" href="/groups/#Programming">Programming</a>
-				    <a class="dropdown-item" href="/groups/#Cyber-Security">Cyber Security</a>
+				    <a class="dropdown-item" href="/groups/web-development/">Web Development</a>
+				    <a class="dropdown-item" href="/groups/robotics/">Robotics</a>
+				    <a class="dropdown-item" href="/groups/management-and-development/">Management and Development</a>
+				    <a class="dropdown-item" href="/groups/programming/">Programming</a>
+				    <a class="dropdown-item" href="/groups/cyber-security/">Cyber Security</a>
   				</div>
 			</div>
 			<li class="nav-item <?php setnavactive($url, "/about"); ?>">
