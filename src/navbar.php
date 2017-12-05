@@ -20,7 +20,7 @@
 		font-weight: 300;	
 	}
 </style>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar-main">
 	<a class="navbar-brand" href="/">
 		<img src="/apple-icon.png" style="width:20px;" />	
 	</a>
