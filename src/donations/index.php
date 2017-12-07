@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+    <title>Donations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
@@ -15,7 +15,7 @@
     <script type="text/javascript" src="./js/snake.js"></script>
     <script type="text/javascript">
 	function snek(){
-		document.body.innerHTML = '<iframe frameborder="0" src="donations/snek.php" style="width: 100%; height:100vh; margin:0; border: none"></iframe>';
+		document.body.innerHTML = '<iframe frameborder="0" src="/easter-eggs/snek" style="width: 100%; height:100vh; margin:0; border: none"></iframe>';
 		document.body.style.cssText = "padding: 0px; margin: 0px; overflow:hidden;";
 		//document.body.style.cssText = "position:absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; padding-top: 0px; margin: 0;";
 	};
