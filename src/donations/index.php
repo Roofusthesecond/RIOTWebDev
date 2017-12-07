@@ -14,26 +14,16 @@
     </div>
     <script type="text/javascript" src="./js/snake.js"></script>
     <script type="text/javascript">
-	var mySnakeBoard;
 	function snek(){
-		document.body.innerHTML = "";
-		var el = document.createElement('div');
-		el.id = "game-area";
-		document.body.appendChild(el);
-		
-		var link = document.createElement('link');
-		link.type = "text/css";
-		link.rel = "stylesheet";
-		link.href = "http://www.me.umn.edu/~dockt036/css/snake.css"; //TODO: Download to website
-		document.head.appendChild(link); //License on website
-		mySnakeBoard = new SNAKE.Board({
-			boardContainer: "game-area",
-            fullScreen: true
-        });
+		document.body.innerHTML = '<iframe frameborder="0" src="donations/snek.php" style="width: 100%; height:100vh; margin:0; border: none"></iframe>';
+		document.body.style.cssText = "padding: 0px; margin: 0px; overflow:hidden;";
+		//document.body.style.cssText = "position:absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; padding-top: 0px; margin: 0;";
 	};
+	</script>
+	<script>
 	//window.onload = snek;
-	//var pos = 0;
-	/*function onKeyPress(e){
+	var pos = 0;
+	function onKeyPress(e){
 		if(e.key == 'snek'[pos]){
 			pos++;
 			if(pos === 4){
@@ -44,7 +34,7 @@
 			pos = 0;
 		}
 	}
-	//document.onkeypress = onKeyPress;*/
+	document.onkeypress = onKeyPress;
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
