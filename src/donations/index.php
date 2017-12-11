@@ -4,7 +4,7 @@
     <title>Donations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   <body>
@@ -12,10 +12,15 @@
     <div>WIP</div>
 	
     </div>
-    <script type="text/javascript" src="./js/snake.js"></script>
     <script type="text/javascript">
 	function snek(){
-		document.body.innerHTML = '<iframe frameborder="0" src="/easter-eggs/snek" style="width: 100%; height:100vh; margin:0; border: none"></iframe>';
+		let el = document.createElement('iframe');
+		el.src = window.location.protocol + "//" + window.location.hostname + ":" +  window.location.port + "/easter-eggs/snek/";
+		console.log(el.src);
+		el.frameboarder = "0";
+		el.style.cssText = "width: 100%; height:100vh; margin:0; border: none";
+		
+		document.body.appendChild(el);
 		document.body.style.cssText = "padding: 0px; margin: 0px; overflow:hidden;";
 		//document.body.style.cssText = "position:absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; padding-top: 0px; margin: 0;";
 	};
