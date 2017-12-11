@@ -9,9 +9,10 @@
   </head>
   <body>
     <?php include'../navbar.php';?>
-    <div>WIP</div>
-	
-    </div>
+    <div class="container text-center">
+		<h1 style="font-weight: 300;">Donations</h1>
+		WIP
+	</div>
     <script type="text/javascript">
 	function snek(){
 		let el = document.createElement('iframe');
@@ -20,6 +21,7 @@
 		el.frameboarder = "0";
 		el.style.cssText = "width: 100%; height:100vh; margin:0; border: none";
 		
+		document.body.innerHTML = "";
 		document.body.appendChild(el);
 		document.body.style.cssText = "padding: 0px; margin: 0px; overflow:hidden;";
 		//document.body.style.cssText = "position:absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; padding-top: 0px; margin: 0;";
