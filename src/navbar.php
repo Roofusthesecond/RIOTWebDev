@@ -18,6 +18,8 @@
 	}
 	.nav-link{
 		font-weight: 300;	
+	} #navbar-main {
+		background-color: #3BCEFF;
 	}
 </style>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar-main">
