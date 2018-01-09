@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   		<style type="text/css">
   			.group-div{
-				border: 2px solid #666;	
+				//border: 2px solid #666;	
 				border-radius: 10px;
 				height: 500px;
 			} 
@@ -20,13 +20,13 @@
   </head>
   <body>
     <?php include'../../navbar.php';?>
-    <div></div>
+    <div class="container-fluid text-center">
+		<h1 style="font-weight: 200; padding: 100px;">Web Development</h1>
 		<div id="Web-Development" class="col-md-12 group-div inside-div-trello">
 			<div id="trello-web-dev"  class="trello-groups">
 				<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/IQOthQcV.html"></iframe>
 			</div>
 		</div>
-
     </div>
     
 
