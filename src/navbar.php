@@ -15,14 +15,22 @@
 <style>
 	.dropdown-item{
 		font-weight: 300;
+	} 
+	.nav-item  {
+		color: #FFFFFF;
 	}
+	
 	.nav-link{
 		font-weight: 300;	
-	} #navbar-main {
-		background-color: #3BCEFF;
+		color: #FFFFFF;
+
+	} 
+
+	#navbar-main {
+		background-color: #205c7e;
 	}
 </style>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="navbar-main">
+<nav class="navbar navbar-expand-sm fixed-top" id="navbar-main">
 	<a class="navbar-brand" href="/">
 		<img src="/apple-icon.png" style="width:20px;" />	
 	</a>
