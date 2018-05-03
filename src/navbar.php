@@ -7,7 +7,7 @@
 	$url = $_SERVER['REQUEST_URI'];
 	
 	function setnavactive($base, $testurl){
-		if($base == $testurl || $base == $testurl . "/"){
+		if($base == $testurl || $base == $testurl . "/" || preg_match(($testurl . "*/"),  $base)){
 			echo "active";
 		}
 	}
@@ -16,6 +16,16 @@
 	.dropdown-item{
 		font-weight: 300;
 	} 
+	.nav-link:hover {
+		color: #000000;
+	}
+	/**.nav-link:active {
+		text-decoration: underline 10px;
+	}**/
+	.active {
+		text-decoration-style: 10px;
+		text-decoration: underline;
+	}
 	.nav-item  {
 		color: #FFFFFF;
 	}
