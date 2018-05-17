@@ -12,7 +12,7 @@
 			
 			<div class="container text-center">
 				<h1 style="font-weight:300;">Contracts</h1>
-				<p style="padding: 30px 0px">None! :)</p>
+				<p style="padding: 30px 0px">Currently we are working on a page for the Home Economic's Teacher's Union (now refered to as the Family and Consumer Science Teachers Association of California) to replace their, old, outdated webpage.</p>
 			</div>
 			
 			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
