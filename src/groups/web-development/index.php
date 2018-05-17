@@ -25,13 +25,18 @@
 			<div class="col-md-12">
 				<h1 style="font-weight: 200; padding: 30px;">Web Development</h1>
 				<div style="color: #FFFFFF;">Irony</div>
+				<div>
+					<p style="font-weight:200">Don't make us hack you with our blackhat html hacker skills.</p>
+				</div>
 			</div>
 			<div id="Web-Development" class="col-md-12 group-div inside-div-trello">
 				<div id="trello-web-dev"  class="trello-groups">
 					<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/VqeyyqrX.html"></iframe>
 				</div>
-				<h2>Our Leader <3</h2>
-				<img src="/img/dreamdaddy.png" />
+				<div>
+					<h1 style="font-weight:200;">Our Leader <3</h1>
+					<img src="/img/dreamdaddy.png" style="width: 100%;"/>
+				</div>
 			</div>
 		</div>
     </div>
