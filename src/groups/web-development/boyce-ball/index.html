@@ -1,0 +1,26 @@
+﻿<html>
+	<head>
+		<title>Boyce Ball</title>
+		<script src="BoyceBall.js"></script>
+	</head>
+	<body>
+		<canvas width="640" height="480" id="canvas" tabindex='1'></canvas>
+		<div id="controls">
+			<button onclick="g.engine.setFPS(0);">TURBO</button>
+			<button onclick="g.engine.setFPS(60);">60FPS</button>
+			<button onclick="g.engine.halt()">Halt</button>
+			<button onclick="g.engine.fullscreen();">Fullscreen</button>
+		</div>
+		<div id="debug"></div>
+		<div>https://developers.google.com/web/updates/2017/11/dynamic-import</div>
+		<script>
+let canvas = document.getElementById('canvas');
+console.log(canvas);
+			let debug = document.getElementById('debug');
+			console.log('🏀 Boyce Ball Version: ' + BoyceBall.VERSION);
+			console.log('🗑️ Landfill Version: ' + BoyceBall.landfill.VERSION);
+			console.log('🗑️ 🍏 Landfill Core Version: ' + BoyceBall.landfill.VERSION);
+			let g = new BoyceBall.Game({canvas: document.getElementById('canvas')});
+		</script>
+	</body>
+</html>
