@@ -1,0 +1,59 @@
+<div>
+	{#await promise}
+	
+	{:then data}
+	<p>{data}</p>
+	{#each data.lists as item}
+		<div class={item.id}>{item.name}</div>
+		{#each item.cards as card}
+		<div>{item.name}</div>
+		{/each}
+	{/each}
+	{:catch err}
+	<p>{err}</p>
+	{/await}
+</div>
+
+<script>
+	export default {
+		tag: 'riot-trello',
+		props: ['src'],
+		computed: {
+			promise: ({src}) => {
+				return fetch('https://trello.com/b/VqeyyqrX.json')
+				.then((res) => {
+					return res.json().then((obj) => {
+						console.log(obj);
+						let output = {
+							lists: [],
+							list_ids: {}
+						};
+						
+						for(let i = 0; i != obj.lists.length; i++){
+							if(!obj.lists[i].closed){
+								output.lists.push(obj.lists[i]);
+								output.list_ids[obj.lists[i].id] = output.lists[i];
+							}
+						}
+						
+						//let cards = [];
+						for(let i = 0; i != obj.cards.length; i++){
+							if(!obj.cards[i].closed && output.list_ids[obj.cards[i].idList]){
+								if(!output.list_ids[obj.cards[i].idList].cards){
+									output.list_ids[obj.cards[i].idList].cards = []; 
+								}
+								
+								output.list_ids[obj.cards[i].idList].cards.push(obj.cards[i]);
+							}
+						}
+						//console.log(cards);
+						
+						console.log(output);
+						
+						return output;
+					})
+				});
+			}
+		}
+	};
+</script>
