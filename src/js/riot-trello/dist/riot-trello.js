@@ -245,32 +245,35 @@ var RiotTrello = (function () {
 				console.log(obj);
 				let output = {
 					lists: [],
-					list_ids: {}
+					list_ids: {},
+					name: obj.name
 				};
 				
 				for(let i = 0; i != obj.lists.length; i++){
-					if(!obj.lists[i].closed){
-						output.lists.push(obj.lists[i]);
-						output.list_ids[obj.lists[i].id] = output.lists[i];
+					let list = obj.lists[i];
+					if(!list.closed){
+						let index = output.lists.push(list) - 1;
+						output.list_ids[list.id] = list;
+						output.lists[index].cards = [];
 					}
 				}
 				
-				//let cards = [];
 				for(let i = 0; i != obj.cards.length; i++){
-					if(!obj.cards[i].closed && output.list_ids[obj.cards[i].idList]){
-						if(!output.list_ids[obj.cards[i].idList].cards){
-							output.list_ids[obj.cards[i].idList].cards = []; 
+					let card = obj.cards[i];
+					if(!card.closed){
+						let list = output.list_ids[card.idList];
+						if(list){
+							list.cards.push(card);
 						}
-						
-						output.list_ids[obj.cards[i].idList].cards.push(obj.cards[i]);
 					}
 				}
-				//console.log(cards);
 				
 				console.log(output);
 				
 				return output;
-			})
+			}).catch((err) => {
+				throw err;
+			});
 		});
 	}
 
@@ -297,6 +300,7 @@ var RiotTrello = (function () {
 				info.block.c();
 
 				this.c = noop;
+				div.className = "board";
 			},
 
 			m(target, anchor) {
@@ -326,30 +330,47 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (2:17)       {:then data}
+	// (19:17)    <p>LOADING...</p>   {:then data}
 	function create_pending_block(component, ctx) {
+		var p;
 
 		return {
-			c: noop,
+			c() {
+				p = createElement("p");
+				p.textContent = "LOADING...";
+			},
 
-			m: noop,
+			m(target, anchor) {
+				insert(target, p, anchor);
+			},
 
 			p: noop,
 
-			d: noop
+			d(detach) {
+				if (detach) {
+					detachNode(p);
+				}
+			}
 		};
 	}
 
-	// (6:1) {#each data.lists as item}
+	// (23:1) {#each data.lists as list}
 	function create_each_block(component, ctx) {
-		var div, text_value = ctx.item.name, text, div_class_value, text_1, each_anchor;
+		var div, text_value = ctx.list.name, text, text_1, each_anchor;
 
-		var each_value_1 = ctx.item.cards;
+		var each_value_1 = ctx.list.cards;
 
 		var each_blocks = [];
 
 		for (var i = 0; i < each_value_1.length; i += 1) {
 			each_blocks[i] = create_each_block_1(component, get_each_context_1(ctx, each_value_1, i));
+		}
+
+		var each_else = null;
+
+		if (!each_value_1.length) {
+			each_else = create_each_block_1_else(component, ctx);
+			each_else.c();
 		}
 
 		return {
@@ -363,7 +384,7 @@ var RiotTrello = (function () {
 				}
 
 				each_anchor = createComment();
-				div.className = div_class_value = ctx.item.id;
+				div.className = "list";
 			},
 
 			m(target, anchor) {
@@ -376,19 +397,19 @@ var RiotTrello = (function () {
 				}
 
 				insert(target, each_anchor, anchor);
+
+				if (each_else) {
+					each_else.m(target, null);
+				}
 			},
 
 			p(changed, ctx) {
-				if ((changed.promise) && text_value !== (text_value = ctx.item.name)) {
+				if ((changed.promise) && text_value !== (text_value = ctx.list.name)) {
 					setData(text, text_value);
 				}
 
-				if ((changed.promise) && div_class_value !== (div_class_value = ctx.item.id)) {
-					div.className = div_class_value;
-				}
-
 				if (changed.promise) {
-					each_value_1 = ctx.item.cards;
+					each_value_1 = ctx.list.cards;
 
 					for (var i = 0; i < each_value_1.length; i += 1) {
 						const child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -407,6 +428,17 @@ var RiotTrello = (function () {
 					}
 					each_blocks.length = each_value_1.length;
 				}
+
+				if (each_value_1.length) {
+					if (each_else) {
+						each_else.d(1);
+						each_else = null;
+					}
+				} else if (!each_else) {
+					each_else = create_each_block_1_else(component, ctx);
+					each_else.c();
+					each_else.m(each_anchor.parentNode, each_anchor);
+				}
 			},
 
 			d(detach) {
@@ -420,13 +452,15 @@ var RiotTrello = (function () {
 				if (detach) {
 					detachNode(each_anchor);
 				}
+
+				if (each_else) each_else.d(detach);
 			}
 		};
 	}
 
-	// (8:2) {#each item.cards as card}
+	// (25:2) {#each list.cards as card}
 	function create_each_block_1(component, ctx) {
-		var div, text_value = ctx.item.name, text;
+		var div, text_value = ctx.card.name, text;
 
 		return {
 			c() {
@@ -440,7 +474,7 @@ var RiotTrello = (function () {
 			},
 
 			p(changed, ctx) {
-				if ((changed.promise) && text_value !== (text_value = ctx.item.name)) {
+				if ((changed.promise) && text_value !== (text_value = ctx.card.name)) {
 					setData(text, text_value);
 				}
 			},
@@ -453,9 +487,31 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (4:1) {:then data}
+	// (27:2) {:else}
+	function create_each_block_1_else(component, ctx) {
+		var div;
+
+		return {
+			c() {
+				div = createElement("div");
+				div.textContent = "ERROR";
+			},
+
+			m(target, anchor) {
+				insert(target, div, anchor);
+			},
+
+			d(detach) {
+				if (detach) {
+					detachNode(div);
+				}
+			}
+		};
+	}
+
+	// (21:1) {:then data}
 	function create_then_block(component, ctx) {
-		var p, text_value = ctx.data, text, text_1, each_anchor;
+		var h1, text_value = ctx.data.name, text, text_1, each_anchor;
 
 		var each_value = ctx.data.lists;
 
@@ -467,7 +523,7 @@ var RiotTrello = (function () {
 
 		return {
 			c() {
-				p = createElement("p");
+				h1 = createElement("h1");
 				text = createText(text_value);
 				text_1 = createText("\r\n\t");
 
@@ -479,8 +535,8 @@ var RiotTrello = (function () {
 			},
 
 			m(target, anchor) {
-				insert(target, p, anchor);
-				append(p, text);
+				insert(target, h1, anchor);
+				append(h1, text);
 				insert(target, text_1, anchor);
 
 				for (var i = 0; i < each_blocks.length; i += 1) {
@@ -491,7 +547,7 @@ var RiotTrello = (function () {
 			},
 
 			p(changed, ctx) {
-				if ((changed.promise) && text_value !== (text_value = ctx.data)) {
+				if ((changed.promise) && text_value !== (text_value = ctx.data.name)) {
 					setData(text, text_value);
 				}
 
@@ -519,7 +575,7 @@ var RiotTrello = (function () {
 
 			d(detach) {
 				if (detach) {
-					detachNode(p);
+					detachNode(h1);
 					detachNode(text_1);
 				}
 
@@ -532,7 +588,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (12:1) {:catch err}
+	// (31:1) {:catch err}
 	function create_catch_block(component, ctx) {
 		var p, text_value = ctx.err, text;
 
@@ -563,9 +619,9 @@ var RiotTrello = (function () {
 
 	function get_each_context(ctx, list, i) {
 		const child_ctx = Object.create(ctx);
-		child_ctx.item = list[i];
+		child_ctx.list = list[i];
 		child_ctx.each_value = list;
-		child_ctx.item_index = i;
+		child_ctx.list_index = i;
 		return child_ctx;
 	}
 
@@ -586,6 +642,7 @@ var RiotTrello = (function () {
 			this._intro = true;
 
 			this.attachShadow({ mode: 'open' });
+			this.shadowRoot.innerHTML = `<style>h1{color:red}.board{background-color:orange;border-radius:10px;color:red}.list{background-color:red;border-radius:10px;color:orange}</style>`;
 
 			this._fragment = create_main_fragment(this, this._state);
 

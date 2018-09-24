@@ -30,9 +30,11 @@
 					<p style="font-weight:200">Don't make us hack you with our blackhat html hacker skills.</p>
 				</div>
 			</div>
+			<div class="col-md-12">
+				<riot-trello src=""></riot-trello>
+			</div>
 			<div id="Web-Development" class="col-md-12 group-div inside-div-trello">
 				<div id="trello-web-dev"  class="trello-groups">
-					<riot-trello src=""></riot-trello>
 					<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/VqeyyqrX.html"></iframe>
 				</div>
 				<div>

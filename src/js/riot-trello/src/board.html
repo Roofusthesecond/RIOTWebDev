@@ -1,12 +1,31 @@
-<div>
-	{#await promise}
+<style>
+	h1{
+		color: red;
+	}
+
+	.board{
+		background-color: orange;
+		border-radius: 10px;
+		color: red;
+	}
 	
+	.list{
+		background-color: red;
+		border-radius: 10px;
+		color: orange;
+	}
+</style>
+<div class="board">
+	{#await promise}
+	<p>LOADING...</p>
 	{:then data}
-	<p>{data}</p>
-	{#each data.lists as item}
-		<div class={item.id}>{item.name}</div>
-		{#each item.cards as card}
-		<div>{item.name}</div>
+	<h1>{data.name}</h1>
+	{#each data.lists as list}
+		<div class="list">{list.name}</div>
+		{#each list.cards as card}
+			<div>{card.name}</div>
+		{:else}
+			<div>ERROR</div>
 		{/each}
 	{/each}
 	{:catch err}
@@ -26,32 +45,37 @@
 						console.log(obj);
 						let output = {
 							lists: [],
-							list_ids: {}
+							list_ids: {},
+							name: obj.name
 						};
 						
 						for(let i = 0; i != obj.lists.length; i++){
-							if(!obj.lists[i].closed){
-								output.lists.push(obj.lists[i]);
-								output.list_ids[obj.lists[i].id] = output.lists[i];
+							let list = obj.lists[i];
+							if(!list.closed){
+								let index = output.lists.push(list) - 1;
+								output.list_ids[list.id] = list;
+								output.lists[index].cards = [];
 							}
 						}
 						
-						//let cards = [];
 						for(let i = 0; i != obj.cards.length; i++){
-							if(!obj.cards[i].closed && output.list_ids[obj.cards[i].idList]){
-								if(!output.list_ids[obj.cards[i].idList].cards){
-									output.list_ids[obj.cards[i].idList].cards = []; 
+							let card = obj.cards[i];
+							if(!card.closed){
+								let list = output.list_ids[card.idList];
+								if(list){
+									list.cards.push(card);
+								}else{
+									//console.log(card);
 								}
-								
-								output.list_ids[obj.cards[i].idList].cards.push(obj.cards[i]);
 							}
 						}
-						//console.log(cards);
 						
 						console.log(output);
 						
 						return output;
-					})
+					}).catch((err) => {
+						throw err;
+					});
 				});
 			}
 		}
