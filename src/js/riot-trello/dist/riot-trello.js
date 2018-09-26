@@ -356,7 +356,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (33:17)    <p>LOADING...</p>   {:then data}
+	// (35:17)    <p>LOADING...</p>   {:then data}
 	function create_pending_block(component, ctx) {
 		var p;
 
@@ -380,7 +380,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (39:3) {#each data.lists as list}
+	// (41:3) {#each data.lists as list}
 	function create_each_block(component, ctx) {
 		var div, h2, text_value = ctx.list.name, text, text_1;
 
@@ -452,7 +452,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (42:5) {#each list.cards as card}
+	// (44:5) {#each list.cards as card}
 	function create_each_block_1(component, ctx) {
 		var div, div_1, text, div_2, text_1_value = ctx.card.name, text_1;
 
@@ -494,7 +494,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (49:3) {:else}
+	// (51:3) {:else}
 	function create_each_block_else(component, ctx) {
 		var div;
 
@@ -516,7 +516,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (36:1) {#if data}
+	// (38:1) {#if data}
 	function create_if_block(component, ctx) {
 		var div, h1, text_value = ctx.data.name, text, text_1;
 
@@ -612,7 +612,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (35:1) {:then data}
+	// (37:1) {:then data}
 	function create_then_block(component, ctx) {
 		var if_block_anchor;
 
@@ -653,7 +653,7 @@ var RiotTrello = (function () {
 		};
 	}
 
-	// (54:1) {:catch err}
+	// (56:1) {:catch err}
 	function create_catch_block(component, ctx) {
 		var p, text_value = ctx.err, text;
 
@@ -707,7 +707,7 @@ var RiotTrello = (function () {
 			this._intro = true;
 
 			this.attachShadow({ mode: 'open' });
-			this.shadowRoot.innerHTML = `<style>h1{color:black}h2{color:white;background-color:#205c7e}.board{background-color:white;border:1px solid #205c7e;border-radius:10px;color:black}.card{margin-bottom:10px;position:relative}.card-label{width:10px;height:50%;position:absolute;left:30px;top:25%}</style>`;
+			this.shadowRoot.innerHTML = `<style>h1{color:black}h2{color:white;background-color:#205c7e;border-radius:50px}.board{background-color:white;border:1px solid #205c7e;border-radius:10px;color:black}.card{margin-bottom:10px;position:relative}.card-label{width:10px;height:50%;position:absolute;left:30px;top:25%;border-radius:50%}</style>`;
 
 			this._fragment = create_main_fragment(this, this._state);
 
