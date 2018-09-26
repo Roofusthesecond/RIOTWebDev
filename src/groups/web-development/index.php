@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-				<riot-trello src=""></riot-trello>
+				<riot-trello src="https://trello.com/b/9mVJPItg.json"></riot-trello>
 			</div>
 			<div id="Web-Development" class="col-md-12 group-div inside-div-trello">
 				<div id="trello-web-dev"  class="trello-groups">

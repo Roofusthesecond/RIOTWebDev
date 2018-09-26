@@ -1,33 +1,56 @@
 <style>
 	h1{
-		color: red;
+		color: black;
+	}
+	
+	h2{
+		color: white;
+		background-color: #205c7e;
 	}
 
 	.board{
-		background-color: orange;
+		background-color: white;
+		border: 1px solid #205c7e;
+		
 		border-radius: 10px;
-		color: red;
+		color: black;
 	}
 	
-	.list{
-		background-color: red;
-		border-radius: 10px;
-		color: orange;
+	.card{
+		margin-bottom: 10px;
+		position: relative;
+	}
+	
+	.card-label{
+		width: 10px; 
+		height: 50%; 
+		position: absolute; 
+		left: 30px; 
+		top: 25%;
 	}
 </style>
 <div class="board">
 	{#await promise}
 	<p>LOADING...</p>
 	{:then data}
-	<h1>{data.name}</h1>
-	{#each data.lists as list}
-		<div class="list">{list.name}</div>
-		{#each list.cards as card}
-			<div>{card.name}</div>
-		{:else}
-			<div>ERROR</div>
-		{/each}
-	{/each}
+	{#if data}
+		<div>
+			<h1>{data.name}</h1>
+			{#each data.lists as list}
+				<div>
+					<h2>{list.name}</h2>
+					{#each list.cards as card}
+						<div class="card">
+							<div style="background-color: blue;" class="card-label"></div>
+							<div>{card.name}</div>
+						</div>
+					{/each}
+				</div>
+			{:else}
+				<div>ERROR</div>
+			{/each}
+		</div>
+	{/if}
 	{:catch err}
 	<p>{err}</p>
 	{/await}
@@ -39,13 +62,21 @@
 		props: ['src'],
 		computed: {
 			promise: ({src}) => {
-				return fetch('https://trello.com/b/VqeyyqrX.json')
+				if(!src){
+					return null;
+				}
+				
+				console.log(src);
+				
+				return fetch(src)
 				.then((res) => {
 					return res.json().then((obj) => {
 						console.log(obj);
 						let output = {
 							lists: [],
 							list_ids: {},
+							labels: [],
+							label_ids: {},
 							name: obj.name
 						};
 						
@@ -56,6 +87,12 @@
 								output.list_ids[list.id] = list;
 								output.lists[index].cards = [];
 							}
+						}
+						
+						for(let i = 0; i != obj.labels.length; i++){
+							let label = obj.labels[i];
+							let index = output.labels.push(label) - 1;
+							output.label_ids[label.id] = label;
 						}
 						
 						for(let i = 0; i != obj.cards.length; i++){
