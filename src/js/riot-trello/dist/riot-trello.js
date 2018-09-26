@@ -280,6 +280,14 @@ var RiotTrello = (function () {
 					let card = obj.cards[i];
 					if(!card.closed){
 						let list = output.list_ids[card.idList];
+						let labels = [];
+						
+						for(let i = 0; i != card.idLabels.length; i++){
+							labels.push(output.label_ids[card.idLabels[i]]);
+						}
+
+						card.labels = labels;
+						
 						if(list){
 							list.cards.push(card);
 						}
@@ -455,7 +463,7 @@ var RiotTrello = (function () {
 				text = createText("\r\n\t\t\t\t\t\t\t");
 				div_2 = createElement("div");
 				text_1 = createText(text_1_value);
-				setStyle(div_1, "background-color", "blue");
+				setStyle(div_1, "background-color", (ctx.card.labels ? ctx.card.labels[0].color : "black"));
 				div_1.className = "card-label";
 				div.className = "card";
 			},
@@ -469,6 +477,10 @@ var RiotTrello = (function () {
 			},
 
 			p(changed, ctx) {
+				if (changed.promise) {
+					setStyle(div_1, "background-color", (ctx.card.labels ? ctx.card.labels[0].color : "black"));
+				}
+
 				if ((changed.promise) && text_1_value !== (text_1_value = ctx.card.name)) {
 					setData(text_1, text_1_value);
 				}

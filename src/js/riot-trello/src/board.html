@@ -41,7 +41,7 @@
 					<h2>{list.name}</h2>
 					{#each list.cards as card}
 						<div class="card">
-							<div style="background-color: blue;" class="card-label"></div>
+							<div style="background-color: {card.labels ? card.labels[0].color : "black"};" class="card-label"></div>
 							<div>{card.name}</div>
 						</div>
 					{/each}
@@ -99,6 +99,14 @@
 							let card = obj.cards[i];
 							if(!card.closed){
 								let list = output.list_ids[card.idList];
+								let labels = [];
+								
+								for(let i = 0; i != card.idLabels.length; i++){
+									labels.push(output.label_ids[card.idLabels[i]]);
+								}
+
+								card.labels = labels;
+								
 								if(list){
 									list.cards.push(card);
 								}else{
