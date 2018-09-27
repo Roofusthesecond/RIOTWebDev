@@ -33,9 +33,7 @@
 	.nav-link{
 		font-weight: 300;	
 		color: #FFFFFF;
-
 	} 
-
 	#navbar-main {
 		background-color: #205c7e;
 	}
@@ -70,6 +68,9 @@
 			</li>
 			<li class="nav-item <?php setnavactive($url, "/contracts"); ?>">
 				<a class="nav-link" href="/contracts">Contracts</a>
+			</li>
+			<li class="nav-item <?php setnavactive($url, "/events"); ?>">
+				<a class="nav-link" href="/events">Events</a>
 			</li>
 		</ul>
 	</div>
