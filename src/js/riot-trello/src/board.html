@@ -2,12 +2,6 @@
 	h1{
 		color: black;
 	}
-	
-	h2{
-		color: white;
-		background-color: #205c7e;
-		border-radius: 50px;
-	}
 
 	.board{
 		background-color: white;
@@ -17,18 +11,8 @@
 		color: black;
 	}
 	
-	.card{
-		margin-bottom: 10px;
-		position: relative;
-	}
-	
-	.card-label{
-		width: 10px; 
-		height: 50%; 
-		position: absolute; 
-		left: 30px; 
-		top: 25%;
-		border-radius: 50%;
+	.error{
+		color: red;
 	}
 </style>
 <div class="board">
@@ -39,17 +23,9 @@
 		<div>
 			<h1>{data.name}</h1>
 			{#each data.lists as list}
-				<div>
-					<h2>{list.name}</h2>
-					{#each list.cards as card}
-						<div class="card">
-							<div style="background-color: {card.labels ? card.labels[0].color : "black"};" class="card-label"></div>
-							<div>{card.name}</div>
-						</div>
-					{/each}
-				</div>
+				<List data={list}></List>
 			{:else}
-				<div>ERROR</div>
+				<div class="error">ERROR</div>
 			{/each}
 		</div>
 	{/if}
@@ -59,8 +35,11 @@
 </div>
 
 <script>
+	import List from './List.html';
+	
 	export default {
 		tag: 'riot-trello',
+		components: {List},
 		props: ['src'],
 		computed: {
 			promise: ({src}) => {
