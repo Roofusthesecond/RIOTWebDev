@@ -11,6 +11,14 @@
 			echo "active";
 		}
 	}
+	
+	function more_disabled_than_r7($base, $testurl){
+		if($base == $testurl || $base == $testurl . "/" || preg_match(($testurl . "*/"),  $base)){
+			echo "disabled";
+			return true;
+		}
+	} 
+
 ?>
 <style>
 	.dropdown-item{
@@ -37,11 +45,12 @@
 	#navbar-main {
 		background-color: #205c7e;
 	}
+	.divider
 </style>
 <nav class="navbar navbar-expand-sm fixed-top" id="navbar-main">
 	<a class="navbar-brand" href="/">
-		<img src="/apple-icon.png" style="width:20px;" />	
-	</a>
+		<img class="" src="/apple-icon.png" style="width:20px;" />	
+	</a> 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -52,13 +61,17 @@
   				<a class="nav-link dropdown-toggle <?php setnavactive($url, "/groups"); ?>" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
    					 Groups
  			    	</a>
- 			 	<div class="dropdown-menu">
-				    <a class="dropdown-item" href="/groups/web-development/">Web Development</a>
-				    <a class="dropdown-item" href="/groups/robotics/">Robotics</a>
-				    <a class="dropdown-item" href="/groups/management-and-development/">Management and Development</a>
-				    <a class="dropdown-item" href="/groups/programming/">Programming</a>
-				    <a class="dropdown-item" href="/groups/cyber-security/">Cyber Security</a>
-  				</div>
+ 			 	<ul class="dropdown-menu">
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/web-development") ?>" href="/groups/web-development">Web Development</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/robotics") ?>" href="/groups/robotics/">Robotics</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/management-and-development") ?>" href="/groups/management-and-development/">Management and Development</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/programming") ?>" href="/groups/programming/">Programming</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/cyber-security") ?>" href="/groups/cyber-security/">Cyber Security</a></li>
+  				</ul>
 			</div>
 			<li class="nav-item <?php setnavactive($url, "/about"); ?>">
 				<a class="nav-link" href="/about">About</a>
