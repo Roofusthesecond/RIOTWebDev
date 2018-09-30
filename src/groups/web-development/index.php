@@ -33,10 +33,6 @@
 				<div id="trello-web-dev"  class="trello-groups">
 					<iframe class="trello-groups" frameborder="0" src="https://trello.com/b/VqeyyqrX.html"></iframe>
 				</div>
-				<div>
-					<h1 style="font-weight:200;">Our Leader <3</h1>
-					<img src="/img/dreamdaddy.png" style="width: 100%;"/>
-				</div>
 			</div>
 		</div>
     </div>
