@@ -1,31 +1,90 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  
-  <a class="navbar-brand" href="#">Navbar</a>
+<!--<style type="text/css">
+	.dropdown:hover .dropdown-menu {
+  		display: block;
+	}
+</style>-->
+<?php 
+	$url = $_SERVER['REQUEST_URI'];
+	
+	function setnavactive($base, $testurl){
+		if($base == $testurl || $base == $testurl . "/" || preg_match(($testurl . "*/"),  $base)){
+			echo "active";
+		}
+	}
+	
+	function more_disabled_than_r7($base, $testurl){
+		if($base == $testurl || $base == $testurl . "/" || preg_match(($testurl . "*/"),  $base)){
+			echo "disabled";
+			return true;
+		}
+	} 
 
- <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active" id="Home">
-        <a class="nav-link" href="#">Home <span class="sr-only"></a>
-      </li>
-      <li class="nav-item dropdown" id="navbar-Groups" href=""> 
-	      Groups
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/Web_Development">Web Development</a>
-          <a class="dropdown-item" href="/Robotics">Robotics</a>
-          <a class="dropdown-item" href="/Programming">Programming</a>
-	  <a class="dropdown-item" href="/Cyber_Security">Cyber Security</a>
-   	  <a class="dropdown-item" href="/Management_and_Development">Management and Development</a>
-        </div>    
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="/About">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="/Donations">Donations</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="/Contracts">Contracts</a>
-      </li>
-    </ul>
-  </div>
+?>
+<style>
+	.dropdown-item{
+		font-weight: 300;
+	} 
+	.nav-link:hover {
+		color: #000000;
+	}
+	/**.nav-link:active {
+		text-decoration: underline 10px;
+	}**/
+	.active {
+		text-decoration-style: 10px;
+		text-decoration: underline;
+	}
+	.nav-item  {
+		color: #FFFFFF;
+	}
+	
+	.nav-link{
+		font-weight: 300;	
+		color: #FFFFFF;
+	} 
+	#navbar-main {
+		background-color: #205c7e;
+	}
+	.divider
+</style>
+<nav class="navbar navbar-expand-sm fixed-top" id="navbar-main">
+	<a class="navbar-brand" href="/">
+		<img class="" src="/apple-icon.png" style="width:20px;" />	
+	</a> 
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	
+	<div class="collapse navbar-collapse" id="nav-content">   
+		<ul class="navbar-nav">
+			<div class="dropdown">
+  				<a class="nav-link dropdown-toggle <?php setnavactive($url, "/groups"); ?>" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+   					 Groups
+ 			    	</a>
+ 			 	<ul class="dropdown-menu">
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/web-development") ?>" href="/groups/web-development">Web Development</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/robotics") ?>" href="/groups/robotics/">Robotics</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/management-and-development") ?>" href="/groups/management-and-development/">Management and Development</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/programming") ?>" href="/groups/programming/">Programming</a></li>
+				    <li class="dropdown-divider"></li>
+				    <li><a class="dropdown-item <?php more_disabled_than_r7($url, "/groups/cyber-security") ?>" href="/groups/cyber-security/">Cyber Security</a></li>
+  				</ul>
+			</div>
+			<li class="nav-item <?php setnavactive($url, "/about"); ?>">
+				<a class="nav-link" href="/about">About</a>
+			</li>
+			<li class="nav-item <?php setnavactive($url, "/donations"); ?>">
+				<a class="nav-link" href="/donations">Donations</a>
+			</li>
+			<li class="nav-item <?php setnavactive($url, "/contracts"); ?>">
+				<a class="nav-link" href="/contracts">Contracts</a>
+			</li>
+			<li class="nav-item <?php setnavactive($url, "/events"); ?>">
+				<a class="nav-link" href="/events">Events</a>
+			</li>
+		</ul>
+	</div>
 </nav>
