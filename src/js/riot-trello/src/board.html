@@ -1,0 +1,109 @@
+<style>
+	h1{
+		color: black;
+	}
+
+	.board{
+		background-color: white;
+		border: 1px solid #205c7e;
+		
+		border-radius: 10px;
+		color: black;
+	}
+	
+	.error{
+		color: red;
+	}
+</style>
+<div class="board">
+	{#await promise}
+	<p>LOADING...</p>
+	{:then data}
+	{#if data}
+		<div>
+			<h1>{data.name}</h1>
+			{#each data.lists as list}
+				<List data={list}></List>
+			{:else}
+				<div class="error">ERROR</div>
+			{/each}
+		</div>
+	{/if}
+	{:catch err}
+	<p>{err}</p>
+	{/await}
+</div>
+
+<script>
+	import List from './List.html';
+	
+	export default {
+		tag: 'riot-trello',
+		components: {List},
+		props: ['src'],
+		computed: {
+			promise: ({src}) => {
+				if(!src){
+					return null;
+				}
+				
+				console.log(src);
+				
+				return fetch(src)
+				.then((res) => {
+					return res.json().then((obj) => {
+						console.log(obj);
+						let output = {
+							lists: [],
+							list_ids: {},
+							labels: [],
+							label_ids: {},
+							name: obj.name
+						};
+						
+						for(let i = 0; i != obj.lists.length; i++){
+							let list = obj.lists[i];
+							if(!list.closed){
+								let index = output.lists.push(list) - 1;
+								output.list_ids[list.id] = list;
+								output.lists[index].cards = [];
+							}
+						}
+						
+						for(let i = 0; i != obj.labels.length; i++){
+							let label = obj.labels[i];
+							let index = output.labels.push(label) - 1;
+							output.label_ids[label.id] = label;
+						}
+						
+						for(let i = 0; i != obj.cards.length; i++){
+							let card = obj.cards[i];
+							if(!card.closed){
+								let list = output.list_ids[card.idList];
+								let labels = [];
+								
+								for(let i = 0; i != card.idLabels.length; i++){
+									labels.push(output.label_ids[card.idLabels[i]]);
+								}
+
+								card.labels = labels;
+								
+								if(list){
+									list.cards.push(card);
+								}else{
+									//console.log(card); 
+								}
+							}
+						}
+						
+						console.log(output);
+						
+						return output;
+					}).catch((err) => {
+						throw err;
+					});
+				});
+			}
+		}
+	};
+</script>

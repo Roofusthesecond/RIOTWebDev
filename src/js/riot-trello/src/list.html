@@ -1,0 +1,67 @@
+<style>
+	.card{
+		margin-bottom: 10px;
+		position: relative;
+	}
+	
+	.card-label{
+		width: 10px; 
+		height: 50%; 
+		position: absolute; 
+		left: 30px; 
+		top: 25%;
+		border-radius: 50%;
+	}
+	
+	.list-title{
+		color: white;
+		background-color: #205c7e;
+		border-radius: 50px;
+		height: 40px;
+		position: relative;
+	}
+</style>
+
+<div>
+	<div class="list-title">
+		<div style="height: 40px; width: 40px; user-select: none; line-height: 40px; font-size: 30px; vertical-align: top; position: absolute; top: 0px; left: 10px;" on:click="toggleEvent(event)">
+			{closed ? '+' : '-'}
+		</div>
+		<h2 style="margin: 0px;">{data.name}</h2>
+	</div>
+	{#each data.cards as card}
+		<div class="card" hidden={closed}>
+			<div style="background-color: {card.labels ? card.labels[0].color : 'black'};" class="card-label"></div>
+			<div>{card.name}</div>
+		</div>
+	{/each}
+</div>
+
+<script>
+	export default {
+		tag: 'riot-trello-list',
+		data(){
+			return {
+				closed: false,
+			}
+		},
+		methods: {
+			toggleEvent(e){
+				let {closed} = this.get();
+				console.log(e);
+				
+				if(closed){
+				
+				}else{
+				
+				}
+				
+				this.set({closed: !closed});
+				console.log(closed);
+			},
+		},
+		oncreate(){
+			//console.log(this.get().data);
+		}
+	}
+</script>
