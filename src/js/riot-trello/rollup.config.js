@@ -3,9 +3,7 @@ import svelte from 'rollup-plugin-svelte';
 export default {
 	input: 'src/index.js',
 	plugins: [
-		svelte({
-			customElement: true
-		})
+		svelte()
 	],
     output: {
         file: 'dist/riot-trello.js',

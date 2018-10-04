@@ -31,7 +31,7 @@
 	</div>
 	{#each data.cards as card}
 		<div class="card" hidden={closed}>
-			<div style="background-color: {card.labels ? card.labels[0].color : 'black'};" class="card-label"></div>
+			<div style="background-color: {card.labels[0] ? card.labels[0].color : 'black'};" class="card-label"></div>
 			<div>{card.name}</div>
 		</div>
 	{/each}
